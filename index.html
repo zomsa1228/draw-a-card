@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>サイトタイトル</title>
+<meta name="description" content="サイトキャプションを入力">
+<meta name="keywords" content="サイトキーワードを,で区切って入力">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="./css/style.css">
+<script src="./script/script.js"></script>
+ </head>
+ 
+ <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <form>
+        <input type="number" min="60" id="decknum" value="60">
+        <input type="button" onclick="create_deck()" value="デッキを生成">
+        <br />
+        <input type="number" min="5" id="hand_card" value="5">
+        <input type="button" onclick="deal()" value="手札を引く">
+    </form>
+    <div class="container">
+        <div id="card1" class="card1"></div>
+        <div id="card2" class="card2"></div>
+        <div id="card3" class="card3"></div>
+        <div id="card4" class="card4"></div>
+        <div id="card5" class="card5"></div>
+        <div id="card6" class="card6"></div>
+        <div id="card7" class="card7"></div>
+        <div id="card8" class="card8"></div>
+        <div id="card9" class="card9"></div>
+        <div id="card10" class="card10"></div>
+    </div>
+   
+    <div class="container-fluid">
+        <div class="row" id="hand">
+            <!--カード表示洋データが入る-->
+        </div>
+    </div>
+ </body>
+</html>
