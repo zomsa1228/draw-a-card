@@ -67,7 +67,7 @@ function deal(){
 
         //生成したデータ      
         hand1 = `
-        <div class="col">
+        <div class="col-3">
             <div class="card">
                 <h5 class="card-header">`+deck_array[deal_num]+`</h5>
 
