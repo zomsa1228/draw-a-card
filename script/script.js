@@ -15,6 +15,7 @@
 
 
     function create_deck(){
+        alert( "山札を生成しました" )
         var decknumber = document.getElementById("decknum").value;
         console.log(document.getElementById("decknum").value);
         //手札生成処理
@@ -38,7 +39,7 @@
 
         shuffleArray(deck_array);
         console.log(deck_array);
-        document.getElementById("hand").innerHTML = "<h1>山札を生成しました</h1>" 
+        // document.getElementById("hand").innerHTML = "<h1>山札を生成しました</h1>" 
     }
 
         function shuffleArray(inputArray){
@@ -47,7 +48,6 @@
     
 
 function deal(){
-
         //入力した値の取得
         hand_deal = document.getElementById("hand_card").value;
         
@@ -55,7 +55,7 @@ function deal(){
         deal_num = 0;
 
     if (typeof deck_array[0] == "undefined") {
-        document.getElementById("hand").innerHTML = "<h1>カードがありません</h1>";
+        alert("カードがありません")
         }else{
 
         //html初期化処理
@@ -65,9 +65,25 @@ function deal(){
         //hand1 生成したデータ
         //hand2 HTMLから取得したデータ
 
-        //生成したデータ
-        hand1 = '\n<div class="col-xs-12 col-sm-6 col-md-3" id="deal_'+ deal_num +'"style="width: 20em;height: 30em;background-color: aqua;border:solid #000;margin: 0.5rem; position: relative;">\n  <p style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; width: 80%; height: 3.2rem;text-align: center;font-size:2.5em;">\n        ' + deck_array[deal_num] + '\n  </p>\n</div>\n';
-        
+        //生成したデータ      
+        hand1 = `
+        <div class="col">
+            <div class="card">
+                <h5 class="card-header">`+deck_array[deal_num]+`</h5>
+
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Action: </li>
+                    <li class="list-group-item">Money: </li>
+                    <li class="list-group-item">Buy: </li>
+                    <li class="list-group-item">Trash: </li>
+                </ul>
+            </div>
+      </div>`
+
         //hand2、すでにあるHTMLのデータを代入
         hand2 = document.getElementById("hand").innerHTML;
         
@@ -85,18 +101,6 @@ function deal(){
         console.log(hand2)
     }
 }
-
-   
-
-// function deal() {
-//     deal_array = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10];
-//         for(let i = 1; i <= 10; i++){
-//             deal_card_num++
-//             document.getElementById("card"+deal_card_num).innerHTML ='<img src="./images/card'+ deal_card_num +'.png">';
-//             deal_array[deal_card_num-1] = "card" + deal_card_num; 
-//         }
-//         document.getElementById("data").innerText = deal_array;
-// }
 
 function random(array, num) {
     var a = array;

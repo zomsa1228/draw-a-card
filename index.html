@@ -7,39 +7,76 @@
 <meta name="keywords" content="サイトキーワードを,で区切って入力">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <link rel="stylesheet" href="./css/style.css">
 <script src="./script/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
  </head>
  
  <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <form>
-        <input type="number" min="60" id="decknum" value="60">
-        <input type="button" onclick="create_deck()" value="デッキを生成">
-        <br />
-        <input type="number" min="5" id="hand_card" value="5">
-        <input type="button" onclick="deal()" value="手札を引く">
-    </form>
-    <div class="container">
-        <div id="card1" class="card1"></div>
-        <div id="card2" class="card2"></div>
-        <div id="card3" class="card3"></div>
-        <div id="card4" class="card4"></div>
-        <div id="card5" class="card5"></div>
-        <div id="card6" class="card6"></div>
-        <div id="card7" class="card7"></div>
-        <div id="card8" class="card8"></div>
-        <div id="card9" class="card9"></div>
-        <div id="card10" class="card10"></div>
-    </div>
-   
-    <div class="container-fluid">
-        <div class="row" id="hand">
-            <!--カード表示洋データが入る-->
+      <div class="container">
+        <div class="row row-cols-1">
+            <div class="col">
+                <div class="card">
+                    <div id="card_body" class="card-body">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Deck Generator</h5>
+                                    <p class="card-text">架空のカードを生成するサイト</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    手札一覧
+                                </div>
+                                <div class="card-body">
+                                    <div class="container">
+                                        <div class="row" id="hand">
+                                                <!--カード表示洋データが入る-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="card-body">
+                            
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput2" class="form-label">デッキを生成</label>
+                                <div class="row g-12">
+                                    <div class="col-10">
+                                        <input type="number" min="60" id="decknum" value="60" class="form-control" id="formGroupExampleInput2" placeholder="Pick up your Choose. 5~">
+                                    </div>
+                                    <div class="col-2">
+                                        <a href="#" onclick="create_deck()" class="btn btn-primary">山札生成</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput2" class="form-label">カードを引く</label>
+                                <div class="row g-12">
+                                    <div class="col-10">
+                                        <input type="number" min="5" id="hand_card" value="5" class="form-control" id="formGroupExampleInput2" placeholder="Pick up your Choose. 5~">
+                                    </div>
+                                    <div class="col-2">
+                                            <a href="#" onclick="deal()" class="btn btn-primary">手札生成</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>当サイトはデータを取得してはおらず、ご利用のPC内ですべて処理が完結しています</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+      </div>
+
  </body>
 </html>
