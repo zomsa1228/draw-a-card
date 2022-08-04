@@ -213,26 +213,28 @@ function random(array, num) {
     console.log(loops);
     console.log(csletr);
     for(let i = 1; i <= lines.length; i++){
-        result1 = 
-        `<div class="col-3">
+
+    result1 = 
+        `<div class="col-12 col-md-6 col-xl-3">
             <div class="card">
-                <h5 class="card-header">`+csletr[card_num][0]+`</h5>
+                <h5 class="card-header">`+csletr[card_num][1]+`</h5>
 
                 <div class="card-body">
-                    <p id="cordtext" class="card-text">`+csletr[card_num][7]+`</p>
+                    <p id="cordtext" class="card-text">`+csletr[card_num][9]+`</p>
                 </div>
 
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Action:`+csletr[card_num][1]+` </li>
-                    <li class="list-group-item">Card:`+csletr[card_num][2]+` </li>
-                    <li class="list-group-item">Money:`+csletr[card_num][3]+` </li>
-                    <li class="list-group-item">Buy:`+csletr[card_num][4]+` </li>
-                    <li class="list-group-item">Trash:`+csletr[card_num][5]+` </li>
-                    <li class="list-group-item">Price:`+csletr[card_num][6]+` </li>
+                    <li class="list-group-item">Action：`+csletr[card_num][2]+` </li>
+                    <li class="list-group-item">Card：`+csletr[card_num][3]+` </li>
+                    <li class="list-group-item">Money：`+csletr[card_num][4]+` </li>
+                    <li class="list-group-item">Buy：`+csletr[card_num][5]+` </li>
+                    <li class="list-group-item">Trash：`+csletr[card_num][6]+` </li>
+                    <li class="list-group-item">Price：`+csletr[card_num][7]+` </li>
+                    <li class="list-group-item">勝利点：`+csletr[card_num][8]+` </li>
                 </ul>
             </div>
         </div>`
-
+    
         //hand2、すでにあるHTMLのデータを代入
         result2 = document.getElementById("hand").innerHTML;
         
