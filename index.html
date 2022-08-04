@@ -60,6 +60,15 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="formGroupExampleInput2" class="form-label">シャッフル</label>
+                                <div class="row g-12">
+                                    <div class="col-12">
+                                            <a href="#" onclick="shuffleArray(deck_array)" class="btn btn-primary">shuffle</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
                                 <label for="formGroupExampleInput2" class="form-label">カードを引く</label>
                                 <div class="row g-12">
                                     <div class="col-10">
@@ -67,6 +76,14 @@
                                     </div>
                                     <div class="col-2">
                                             <a href="#" onclick="deal()" class="btn btn-primary">手札生成</a>
+                                    </div>
+                                </div>
+                            </div>  
+                            <div class="mb-3">
+                                <label for="formGroupExampleInput2" class="form-label">カードデータ</label>
+                                <div class="row g-12">
+                                    <div class="col-10">
+                                        <input type="file" min="5" id="hand_card" value="5" class="form-control" id="formGroupExampleInput2" placeholder="Pick up your Choose. 5~">
                                     </div>
                                 </div>
                             </div>

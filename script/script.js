@@ -12,10 +12,40 @@
     var hand2 = "";
     var deal_loop_num = 1;
     var deal_num = 0;
+    var dial_se = "";
+    var deck_se
+
+    for(let i = 1; i <= decknumber; i++){
+
+    eval("var card_Action" + card_num +"= 0;");
+    eval("card_Action_array["+deck_create_loop+"]=card"+card_num+";");
+
+    eval("var card_Card" + card_num +"= 0;");
+    eval("card_Card_array["+deck_create_loop+"]=card"+card_num+";");
+
+    eval("var card_Money" + card_num +"= 0;");
+    eval("card_Money_array["+deck_create_loop+"]=card"+card_num+";");
+
+    eval("var card_Buy" + card_num +"= 0;");
+    eval("card_Buy_array["+deck_create_loop+"]=card"+card_num+";");
+
+    eval("var card_Trash" + card_num +"= 0;");
+    eval("card_Trash_array["+deck_create_loop+"]=card"+card_num+";");
+
+    eval("var card_Price" + card_num +"= 0;");
+    eval("card_Price_array["+deck_create_loop+"]=card"+card_num+";");
+    card_num++
+    deck_create_loop++
+}
+
+var card_array = [card_Action_array,card_Card_array,card_Money_array,card_Buy_array,card_Trash_array,card_Price_array];
+console.log(card_array);
 
 
     function create_deck(){
-        alert( "山札を生成しました" )
+        deck_se = new Audio("./sound/se/カードをきる.mp3");
+        deck_se.play();
+        alert( "山札を生成しました" );
         var decknumber = document.getElementById("decknum").value;
         console.log(document.getElementById("decknum").value);
         //手札生成処理
@@ -37,7 +67,6 @@
                 deck_create_loop++
         }
 
-        shuffleArray(deck_array);
         console.log(deck_array);
         // document.getElementById("hand").innerHTML = "<h1>山札を生成しました</h1>" 
     }
@@ -77,9 +106,11 @@ function deal(){
 
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Action: </li>
+                    <li class="list-group-item">Card: </li>
                     <li class="list-group-item">Money: </li>
                     <li class="list-group-item">Buy: </li>
                     <li class="list-group-item">Trash: </li>
+                    <li class="list-group-item">Price: </li>
                 </ul>
             </div>
       </div>`
@@ -95,8 +126,12 @@ function deal(){
         
         //deck_arrayの先頭のデータを削除
         deck_array.shift();
-        }
+        
+        dial_se = new Audio("./sound/se/カードを扇状に開く.mp3");
+        dial_se.play(); 
 
+        }
+        
         console.log(deck_array);
         console.log(hand2)
     }
@@ -104,7 +139,7 @@ function deal(){
 
 function random(array, num) {
     var a = array;
-    var l = a.length;
+    var l = a.length
     var n = num < l ? num : l;
     while (n-- > 0) {
       var i = Math.random() * l | 0;
