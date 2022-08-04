@@ -1,5 +1,14 @@
     var deal_array = [];
-    var deck_array =[];
+    var deck_array = [];
+
+    var card_Action_array = [];
+    var card_Card_array = [];
+    var card_Money_array = [];
+    var card_Buy_array = [];
+    var card_Trash_array = [];
+    var card_Price_array =[];
+    var card_array =[];
+
     var card_num = 1;
     var deck_create_loop = 0;
     var deal_card_num ="";
@@ -15,31 +24,12 @@
     var dial_se = "";
     var deck_se
 
-    for(let i = 1; i <= decknumber; i++){
+    var result1 ="";
+    var result2 ="";
 
-    eval("var card_Action" + card_num +"= 0;");
-    eval("card_Action_array["+deck_create_loop+"]=card"+card_num+";");
-
-    eval("var card_Card" + card_num +"= 0;");
-    eval("card_Card_array["+deck_create_loop+"]=card"+card_num+";");
-
-    eval("var card_Money" + card_num +"= 0;");
-    eval("card_Money_array["+deck_create_loop+"]=card"+card_num+";");
-
-    eval("var card_Buy" + card_num +"= 0;");
-    eval("card_Buy_array["+deck_create_loop+"]=card"+card_num+";");
-
-    eval("var card_Trash" + card_num +"= 0;");
-    eval("card_Trash_array["+deck_create_loop+"]=card"+card_num+";");
-
-    eval("var card_Price" + card_num +"= 0;");
-    eval("card_Price_array["+deck_create_loop+"]=card"+card_num+";");
-    card_num++
-    deck_create_loop++
-}
-
-var card_array = [card_Action_array,card_Card_array,card_Money_array,card_Buy_array,card_Trash_array,card_Price_array];
-console.log(card_array);
+// card_array = [card_Action_array,card_Card_array,card_Money_array,card_Buy_array,card_Trash_array,card_Price_array];
+// console.log(card_Action_array);
+// console.log(card_array);
 
 
     function create_deck(){
@@ -63,15 +53,42 @@ console.log(card_array);
             
             //deck_array[1]=card1;
             eval("deck_array["+deck_create_loop+"]=card"+card_num+";");
+
+            eval("var card_Action" + card_num +"= 0;");
+            
+            //card1="card1";
+            eval('card_Action'+ card_num +'="card_Action'+card_num+'";');
+
+            eval("card_Action_array["+deck_create_loop+"]=card_Action"+card_num+";");
+        
+            eval("var card_Card" + card_num +"= 0;");
+            eval("card_Card_array["+deck_create_loop+"]=card_Card"+card_num+";");
+        
+            eval("var card_Money" + card_num +"= 0;");
+            eval("card_Money_array["+deck_create_loop+"]=card_Money"+card_num+";");
+        
+            eval("var card_Buy" + card_num +"= 0;");
+            eval("card_Buy_array["+deck_create_loop+"]=card_Buy"+card_num+";");
+        
+            eval("var card_Trash" + card_num +"= 0;");
+            eval("card_Trash_array["+deck_create_loop+"]=card_Trash"+card_num+";");
+        
+            eval("var card_Price" + card_num +"= 0;");
+            eval("card_Price_array["+deck_create_loop+"]=card_Price"+card_num+";");
+
                 card_num++
                 deck_create_loop++
         }
+
+        card_array = [card_Action_array,card_Card_array,card_Money_array,card_Buy_array,card_Trash_array,card_Price_array];
+        console.log(card_array);
 
         console.log(deck_array);
         // document.getElementById("hand").innerHTML = "<h1>山札を生成しました</h1>" 
     }
 
-        function shuffleArray(inputArray){
+        
+    function shuffleArray(inputArray){
             inputArray.sort(()=> Math.random() - 0.5);
         };  
     
@@ -151,12 +168,80 @@ function random(array, num) {
     console.log(r);
     console.log(r[0]);
     
-    for(let i = 1; i <= 5; i++ ){
-        console.log(rnum);
-        console.log(r[rnum]);
-        document.getElementById("card"+rnum).innerHTML = '<img src="./images/card'+ r[rnum] +'.png">';
-        rnum++
-    }
+    // for(let i = 1; i <= 5; i++ ){
+    //     console.log(rnum);
+    //     console.log(r[rnum]);
+    //     document.getElementById("card"+rnum).innerHTML = '<img src="./images/card'+ r[rnum] +'.png">';
+    //     rnum++
+    // }
     return r;
   }
   
+
+  function csvs(){
+    // CSVファイルを文字列として取得
+    let srt = new XMLHttpRequest();
+
+    srt.open("GET", 'データ.csv', false);
+
+    try {
+        srt.send(null);
+    } catch (err) {
+        console.log(err)
+    }
+
+    // 配列を用意
+    let csletr = [];
+
+    // 改行ごとに配列化
+    let lines = srt.responseText.split(/\r\n|\n/);
+
+    // 表示
+    console.log(lines)
+
+    // 1行ごとに処理
+    var loops =0;
+    for (let i = 0; i < lines.length; ++i) {
+        let cells = lines[i].split(",");
+        if (cells.length != 1) {
+            csletr.push(cells);
+            loops++
+        }
+    }
+
+    // 表示
+    console.log(loops);
+    console.log(csletr);
+    for(let i = 1; i <= lines.length; i++){
+        result1 = 
+        `<div class="col-3">
+            <div class="card">
+                <h5 class="card-header">`+csletr[card_num][0]+`</h5>
+
+                <div class="card-body">
+                    <p id="cordtext" class="card-text">`+csletr[card_num][7]+`</p>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Action:`+csletr[card_num][1]+` </li>
+                    <li class="list-group-item">Card:`+csletr[card_num][2]+` </li>
+                    <li class="list-group-item">Money:`+csletr[card_num][3]+` </li>
+                    <li class="list-group-item">Buy:`+csletr[card_num][4]+` </li>
+                    <li class="list-group-item">Trash:`+csletr[card_num][5]+` </li>
+                    <li class="list-group-item">Price:`+csletr[card_num][6]+` </li>
+                </ul>
+            </div>
+        </div>`
+
+        //hand2、すでにあるHTMLのデータを代入
+        result2 = document.getElementById("hand").innerHTML;
+        
+        //すでにあるデータに「すでにあるデータ+生成したデータ」を代入
+        result2 = result2 + result1;
+        
+        //hand2のデータをHTMLに書き出し
+        document.getElementById("hand").innerHTML = result2;
+
+        card_num++
+    }
+  }
