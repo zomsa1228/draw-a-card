@@ -31,6 +31,16 @@
 // console.log(card_Action_array);
 // console.log(card_array);
 
+        //Form要素を取得する
+        var form = document.forms.myform;
+            
+        //ファイルが読み込まれた時の処理
+        form.myfile.addEventListener('change', function(e) {
+        
+        //ここにファイル取得処理を書く
+        
+        })
+
 
     function create_deck(){
         deck_se = new Audio("./sound/se/カードをきる.mp3");
