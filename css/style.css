@@ -14,3 +14,57 @@
   height: 10rem;
 }
 
+div[class^=container]{
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  width: 100%;
+
+}
+
+#card{
+border:solid #111 0.5rem;
+border-radius: 1rem;
+padding: auto;
+background-color: #fff;
+z-index: 1;
+}
+
+#cad_top{
+border:solid #111 2px;
+border-bottom-left-radius: 1rem;
+border-bottom-right-radius: 1rem;
+margin-left: 0rem;
+margin-right: 0rem;
+padding: 0.1rem;
+background-color: #bebebe;
+z-index: 0;
+
+}
+
+div[class*=col]{
+text-align: center;
+}
+
+img{
+margin: 1vh 0.5vw;
+border: solid #000 2px;
+margin: 1px;
+padding: 0.1rem;
+} 
+
+#title_content{
+border-bottom: solid #000 2px;
+height: 5vh;
+margin: 0vh 0vw;
+padding: 0.1vh 0.1vh;
+
+}
+
+#description_content{
+height: 35vh;
+margin: 0vh 0vw;
+padding: 0.1vh 0.1vh;
+
+}
